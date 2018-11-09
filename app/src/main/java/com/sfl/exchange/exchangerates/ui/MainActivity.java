@@ -23,7 +23,7 @@ import java.util.List;
 import androidx.lifecycle.ViewModelProviders;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String BANK_ID = "id_of_bank";
+    public static final String BANK = "company_bank";
     private static final String[] TYPE_SPINNER = {PayMode.CASH.toString(), PayMode.NOCASH.toString()};
     private static final String[] CURRENCY_SPINNER = {Currencies.USD.toString(), Currencies.EUR.toString(), Currencies.RUR.toString(),
             Currencies.AUD.toString(), Currencies.CAD.toString(), Currencies.CHF.toString(), Currencies.GBP.toString(),
@@ -40,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
     private CompanyStructure mCompanyStructure;
 
     private BankListAdapter mAdapter;
+
     BankListAdapter.OnItemSelectedListener mAdapterListener = new BankListAdapter.OnItemSelectedListener() {
         @Override
         public void onItemSelected(Company listItem) {
             Intent intent = new Intent(MainActivity.this,BankDetailsActivity.class);
-            intent.putExtra(BANK_ID,listItem.getId());
+            intent.putExtra(BANK, listItem);
             startActivity(intent);
         }
     };
