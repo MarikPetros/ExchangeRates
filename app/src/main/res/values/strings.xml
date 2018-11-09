@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExchangeRates</string>
+    <string name="text_distance">Distance</string>
+    <string name="text_buy">Buy</string>
+    <string name="text_sell">Sell</string>
+    <string name="logo_image">logo_image</string>
+</resources>
