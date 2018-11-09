@@ -7,9 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.sfl.exchange.exchangerates.R;
 import com.sfl.exchange.exchangerates.adapter.BankListAdapter;
@@ -30,16 +28,12 @@ public class MainActivity extends AppCompatActivity {
             Currencies.GEL.toString(), Currencies.JPY.toString(), Currencies.XAU.toString()};
 
     private Spinner mTypeSpinner, mCurrencySpinner;
-    private ImageView mImgLocations;
-    private TextView mDistance, mBuy, mSell;
 
     private RatesViewModel mViewModel;
     private List<Company> mCompanies;
     private Currencies mCurrency;
     private PayMode mMode;
     private CompanyStructure mCompanyStructure;
-
-    private BankListAdapter mAdapter;
 
     BankListAdapter.OnItemSelectedListener mAdapterListener = new BankListAdapter.OnItemSelectedListener() {
         @Override
@@ -62,10 +56,6 @@ public class MainActivity extends AppCompatActivity {
         //finding views
         mTypeSpinner = findViewById(R.id.spinner_type);
         mCurrencySpinner = findViewById(R.id.spinner_currency);
-        mImgLocations = findViewById(R.id.image_locations);
-        mDistance = findViewById(R.id.text_distance);
-        mBuy = findViewById(R.id.text_buy);
-        mSell = findViewById(R.id.text_sell);
         RecyclerView mRecyclerView = findViewById(R.id.main_list_recycler_view);
 
         //setting spinner adapters
@@ -81,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
         //setting recycler view adapter
         getRemoteData();
-        mAdapter = new BankListAdapter(mCompanies, mCurrency, mMode);
+        BankListAdapter mAdapter = new BankListAdapter(mCompanies, mCurrency, mMode);
         mAdapter.setOnItemSelectedListener(mAdapterListener);
         mRecyclerView.setAdapter(mAdapter);
 
